@@ -28,6 +28,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": "/ZUI",
   "browserslist": {
     "production": [
       ">0.2%",
