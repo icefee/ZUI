@@ -1,3 +1,7 @@
 .App {
-  text-align: center;
+  position: relative;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
 }
+

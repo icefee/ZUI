@@ -5,11 +5,13 @@ import { ZButton, ZBlock } from './packages';
 function App() {
   return (
     <div className="App">
-      <ZBlock.Flex>
-        <ZButton>按钮</ZButton>
-      </ZBlock.Flex>
+      <div className="grid">
+        <ZBlock.Flex>
+          <ZButton>按钮</ZButton>
+        </ZBlock.Flex>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
