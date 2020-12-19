@@ -1,1 +1,3 @@
-export { default as ZButton } from './Button';
+import ZButton from './Button';
+
+export default ZButton;

@@ -1,8 +1,8 @@
-import React, { ReactNode, MouseEvent } from 'react';
+import { ReactElement, MouseEvent } from 'react';
 import classNames from 'classnames';
 
 interface ButtonProps {
-    children: string | ReactNode,
+    children: string | ReactElement,
     type?: 'default' | 'primary' | 'danger' | 'success',
     size?: 'sm' | 'md' | 'lg',
     onClick?: ((event: MouseEvent) => void) | undefined

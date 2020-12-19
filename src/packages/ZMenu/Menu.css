@@ -1,0 +1,27 @@
+.menu-item {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color .5s ease;
+}
+
+.menu-item:hover {
+    background-color: #eee;
+}
+
+.z-menu li ul .menu-item {
+    padding-left: 25px;
+    user-select: none;
+}
+
+.z-menu li ul:not(.open) {
+    display: none;
+}
+
+.z-menu .icon {
+    transition: transform .4s ease-in-out;
+}
+
+.z-menu .icon.flip {
+    transform: rotateX(180deg);
+}

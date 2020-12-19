@@ -1,9 +1,8 @@
 import Flex from './Flex';
 
-const ZBlock: any = {};
-ZBlock.Flex = Flex;
+const ZBlock = {
+    Flex
+};
 
-export {
-    ZBlock
-}
+export default ZBlock;
 
