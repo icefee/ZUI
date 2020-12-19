@@ -38,7 +38,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "/docs",
+  "homepage": "/ZUI",
   "browserslist": {
     "production": [
       ">0.2%",
