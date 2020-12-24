@@ -9,9 +9,17 @@
     background-color: #eee;
 }
 
+.z-menu li {
+    list-style-type: none;
+}
+
 .z-menu li ul .menu-item {
     padding-left: 25px;
     user-select: none;
+}
+
+.z-menu li ul .menu-item.active {
+    background-color: #ccc;
 }
 
 .z-menu li ul:not(.open) {

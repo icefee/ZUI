@@ -7,6 +7,7 @@ import './App.css';
 import Side from './units/Side';
 import QuickStart from './pages/QuickStart';
 import Button from './pages/Button';
+import Icon from './pages/Icon';
 import Menu from './pages/Menu';
 import { ZBlock } from './packages';
 
@@ -19,6 +20,7 @@ function App(): ReactElement {
           <div className="router">
             <Route path="/" component={QuickStart} exact />
             <Route path="/button" component={Button} />
+            <Route path="/icon" component={Icon} />
             <Route path="/menu" component={Menu} />
           </div>
         </Router>

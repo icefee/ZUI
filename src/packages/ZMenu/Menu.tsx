@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode, useState, useCallback } from 'react';
 import ZBlock from '../ZBlock';
-import { ArrowDown } from '../ZIcon';
+import ZIcon from '../ZIcon';
 import classNames from 'classnames';
 import './Menu.css';
 
@@ -17,13 +17,15 @@ type OnSelect = ((event: string) => void) | undefined;
 interface MenuProps {
     collapsed: boolean,
     items: MenuItem[],
+    defaultSelected: string,
     onSelect?: OnSelect
 }
 
-function MenuGroup(props: { onSelect: OnSelect, menuItem: MenuItem}): ReactElement {
+function MenuGroup(props: { defaultSelected: string, onSelect: OnSelect, menuItem: MenuItem}): ReactElement {
     const {
         onSelect,
-        menuItem
+        menuItem,
+        defaultSelected
     } = props;
     const {
         isOpen = true,
@@ -38,22 +40,22 @@ function MenuGroup(props: { onSelect: OnSelect, menuItem: MenuItem}): ReactEleme
             if (items) {
                 setOpen(!open)
             }
-            else {
-                name && onSelect && onSelect(name)
+            else if (name) {
+                onSelect && onSelect(name);
             }
         },
         [items, open, name, onSelect],
     )
     return (
         <li>
-            <span className="menu-item" onClick={ handleMenuSelect }>
+            <span className={classNames('menu-item', { active: defaultSelected === name }) } onClick={ handleMenuSelect }>
                 <ZBlock.Flex justifyContent="space-between" alignItems="center">
                     <ZBlock.Flex>
                         {icon}
                         <span>{label}</span>
                     </ZBlock.Flex>
                     {
-                        items && <ArrowDown size={16} className={ classNames('icon', {flip: open}) }/>
+                        items && <ZIcon.ArrowDown size={16} className={ classNames('icon', {flip: open}) }/>
                     }
                 </ZBlock.Flex>
             </span>
@@ -62,7 +64,7 @@ function MenuGroup(props: { onSelect: OnSelect, menuItem: MenuItem}): ReactEleme
                     <ul className={classNames({ open })}>
                         {
                             items.map(
-                                (item: MenuItem, key: number) => <MenuGroup key={key} onSelect={props.onSelect} menuItem={item} />
+                                (item: MenuItem, key: number) => <MenuGroup key={key} onSelect={props.onSelect} menuItem={item} defaultSelected={defaultSelected} />
                             )
                         }
                     </ul>
@@ -76,14 +78,27 @@ export default function Menu(props: MenuProps): ReactElement {
     const {
         collapsed,
         items,
-        onSelect
+        onSelect,
+        defaultSelected
     } = props;
+    const [state, setState] = useState({
+        selected: defaultSelected
+    })
+    const handleSelect = useCallback(
+        (name: string) => {
+            setState({
+                selected: name
+            })
+            onSelect && onSelect(name);
+        },
+        [onSelect],
+    )
     return (
         <div className={classNames('z-menu', { collapsed })}>
             <ul>
                 {
                     items.map(
-                        (item: MenuItem, key: number) => <MenuGroup key={key} onSelect={onSelect} menuItem={item} />
+                        (item: MenuItem, key: number) => <MenuGroup key={key} onSelect={handleSelect} menuItem={item} defaultSelected={state.selected} />
                     )
                 }
             </ul>

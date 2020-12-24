@@ -16,7 +16,7 @@ export default function Side(props: SideProps): ReactElement {
 
     const menus = [
         {
-            label: 'Quick get start',
+            label: '教程',
             icon: <i data-eva="github" />,
             items: [
                 {
@@ -27,13 +27,18 @@ export default function Side(props: SideProps): ReactElement {
             ]
         },
         {
-            label: 'Components',
+            label: '组件',
             icon: <i data-eva="github" />,
             items: [
                 {
                     label: '按钮 Button',
                     icon: <i data-eva="layers-outline" />,
                     name: '/button'
+                },
+                {
+                    label: '图标 Icon',
+                    icon: <i data-eva="layers-outline" />,
+                    name: '/icon'
                 },
                 {
                     label: '菜单 Menu',
@@ -47,12 +52,14 @@ export default function Side(props: SideProps): ReactElement {
     useEffect(() => eva.replace(), [])
 
     const handleMenuSelect = (name: string) => {
-        history.push(name);
+        if (history.location.pathname !== name) {
+            history.push(name);
+        }
     }
 
     return (
         <div className="side-bar" style={{ width }} { ...rest }>
-            <ZMenu items={ menus } collapsed={ false } onSelect={ handleMenuSelect } />
+            <ZMenu items={ menus } collapsed={ false } defaultSelected="/" onSelect={ handleMenuSelect } />
         </div>
     )
 }
