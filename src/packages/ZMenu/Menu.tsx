@@ -2,7 +2,7 @@ import { ReactElement, ReactNode, useState, useCallback } from 'react';
 import ZBlock from '../ZBlock';
 import ZIcon from '../ZIcon';
 import classNames from 'classnames';
-import './Menu.css';
+import './style.css';
 
 interface MenuItem {
     label: ReactNode,
@@ -50,7 +50,7 @@ function MenuGroup(props: { defaultSelected: string, onSelect: OnSelect, menuIte
         <li>
             <span className={classNames('menu-item', { active: defaultSelected === name }) } onClick={ handleMenuSelect }>
                 <ZBlock.Flex justifyContent="space-between" alignItems="center">
-                    <ZBlock.Flex>
+                    <ZBlock.Flex alignItems="center">
                         {icon}
                         <span>{label}</span>
                     </ZBlock.Flex>

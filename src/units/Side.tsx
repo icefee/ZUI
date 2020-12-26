@@ -1,5 +1,5 @@
 import { ReactElement, useEffect } from 'react';
-import { ZMenu } from '../packages';
+import { ZMenu, ZIcon } from '../packages';
 import { useHistory } from 'react-router';
 import * as eva from 'eva-icons';
 
@@ -17,18 +17,18 @@ export default function Side(props: SideProps): ReactElement {
     const menus = [
         {
             label: '教程',
-            icon: <i data-eva="github" />,
+            icon: <ZIcon.Book size={20} />,
             items: [
                 {
                     label: '快速开始',
-                    icon: <i data-eva="layers-outline" />,
+                    icon: <ZIcon.PaperPlane size={ 20 } />,
                     name: '/'
                 }
             ]
         },
         {
             label: '组件',
-            icon: <i data-eva="github" />,
+            icon: <ZIcon.Grid size={ 20 } />,
             items: [
                 {
                     label: '按钮 Button',
@@ -59,7 +59,7 @@ export default function Side(props: SideProps): ReactElement {
 
     return (
         <div className="side-bar" style={{ width }} { ...rest }>
-            <ZMenu items={ menus } collapsed={ false } defaultSelected="/" onSelect={ handleMenuSelect } />
+            <ZMenu items={menus} collapsed={false} defaultSelected={ history.location.pathname } onSelect={ handleMenuSelect } />
         </div>
     )
 }

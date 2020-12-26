@@ -18,7 +18,7 @@
     user-select: none;
 }
 
-.z-menu li ul .menu-item.active {
+.z-menu .menu-item.active {
     background-color: #ccc;
 }
 

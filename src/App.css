@@ -20,14 +20,3 @@
   font-size: 20px;
   margin-bottom: 10px;
 }
-
-.grid-view {
-  display: grid;
-  grid-template-rows: repeat(6, 120px);
-  grid-template-columns: repeat(6, 120px);
-  background-color: #fff;
-}
-
-.grid-view .grid-cell {
-  border: 1px solid #ccc;
-}
