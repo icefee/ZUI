@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 
-export default function Menu(): ReactElement {
+export default function Card () : ReactElement {
     return (
-        <div className="menu">
+        <div className="card">
             <div className="header">
-                <span>菜单 Menu</span>
+                <span>卡片 Card</span>
             </div>
         </div>
     )

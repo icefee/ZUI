@@ -3,11 +3,15 @@ import AlertCircle from './AlertCircle';
 import Grid from './Grid';
 import PaperPlane from './PaperPlane';
 import Book from './Book';
+import Layers from './Layers';
 
-export default {
+const ZIcon = {
     ArrowDown,
     AlertCircle,
     Grid,
     PaperPlane,
-    Book
+    Book,
+    Layers
 }
+
+export default ZIcon;

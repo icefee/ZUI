@@ -1,7 +1,7 @@
-import { ReactElement, useEffect } from 'react';
-import { ZMenu, ZIcon } from '../packages';
+import { ReactElement } from 'react';
+import { ZMenu, ZIcon } from '../../packages';
 import { useHistory } from 'react-router';
-import * as eva from 'eva-icons';
+import './style.css';
 
 interface SideProps {
     width?: number
@@ -32,24 +32,32 @@ export default function Side(props: SideProps): ReactElement {
             items: [
                 {
                     label: '按钮 Button',
-                    icon: <i data-eva="layers-outline" />,
+                    icon: <ZIcon.Layers size={ 20 } />,
                     name: '/button'
                 },
                 {
                     label: '图标 Icon',
-                    icon: <i data-eva="layers-outline" />,
+                    icon: <ZIcon.Layers size={20} />,
                     name: '/icon'
                 },
                 {
                     label: '菜单 Menu',
-                    icon: <i data-eva="layers-outline" />,
+                    icon: <ZIcon.Layers size={20} />,
                     name: '/menu'
+                },
+                {
+                    label: '容器 Block',
+                    icon: <ZIcon.Layers size={20} />,
+                    name: '/block'
+                },
+                {
+                    label: '卡片 Card',
+                    icon: <ZIcon.Layers size={20} />,
+                    name: '/card'
                 },
             ]
         }
     ];
-
-    useEffect(() => eva.replace(), [])
 
     const handleMenuSelect = (name: string) => {
         if (history.location.pathname !== name) {

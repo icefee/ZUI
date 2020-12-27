@@ -3,16 +3,3 @@
   grid-template-columns: repeat(8, 1fr);
   column-gap: 10px;
 }
-
-.grid-view .grid-cell {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: none;
-  transition: all .4s;
-}
-
-.grid-view .grid-cell:hover {
-  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .2);
-}

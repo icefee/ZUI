@@ -4,7 +4,7 @@ export default function Button(): ReactElement {
     return (
         <div className="button">
             <div className="header">
-                <span>按钮组件</span>
+                <span>按钮 Button</span>
             </div>
         </div>
     )

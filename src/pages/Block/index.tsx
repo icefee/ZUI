@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 
-export default function Menu(): ReactElement {
+export default function Block() : ReactElement {
     return (
-        <div className="menu">
+        <div className="block">
             <div className="header">
-                <span>菜单 Menu</span>
+                <span>容器 Block</span>
             </div>
         </div>
     )
