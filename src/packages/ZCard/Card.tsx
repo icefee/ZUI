@@ -1,14 +1,9 @@
-import { CSSProperties, ReactElement, ReactNode } from 'react';
+import { ReactElement } from 'react';
 import classNames from 'classnames';
 import './style.css';
+import { CardProps } from '../types'
 
-interface CardProps {
-    children?: ReactNode,
-    className?: string,
-    style?: CSSProperties
-}
-
-export default function Card (props: CardProps) : ReactElement {
+export default function Card(props: CardProps) : ReactElement {
     const {
         children,
         className,
