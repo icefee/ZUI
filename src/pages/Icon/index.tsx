@@ -50,17 +50,27 @@ export default function Icon(): ReactElement {
                     </Center>
                 </div>
                 <ZBlock.Flex justifyContent="center" style={{ marginTop: 10 }}>
-                    <ZCard>
+                    <ZCard style={{ width: 240 }}>
                         <PaperPlane size={ 80 } />
                     </ZCard>
                     <ZCard style={{ width: '100%', marginLeft: 10 }}>
-                        <HighLight>
-                            &lt;PaperPlane /&gt;
-                        </HighLight>
+                        <pre>
+                            <HighLight code={
+                                `import { ZIcon } from 'ZUI';`
+                            } language="javascript" />
+                            <HighLight code={
+                                `const { PaperPlane } = ZIcon;`
+                            } language="javascript" />
+                            <HighLight code={
+                                `<PaperPlane size={ 25 } />`
+                            } language="javascript" />
+                        </pre>
                     </ZCard>
                 </ZBlock.Flex>
                 <ZCard style={{ marginTop: 10 }}>
-                    <span>Props</span>
+                    <h3>Props</h3>
+                    <p>size? number</p>
+                    <p>图标的大小, 类型为 number </p>
                 </ZCard>
             </div>
         </div>

@@ -1,14 +1,21 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useRef } from 'react';
 import hljs from 'highlight.js/lib/core';
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/atom-one-dark.css';
 import javascript from 'highlight.js/lib/languages/javascript';
 import './style.css';
 hljs.registerLanguage('javascript', javascript);
 
-export default function HighLight({ children } : { children: string }) : ReactElement {
+export default function HighLight({ code, language }: { code: string, language: string }) : ReactElement {
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        hljs.highlightBlock(ref.current)
+    }, [])
+
     return (
-        <div className="code" dangerouslySetInnerHTML={
-            { __html: hljs.highlight('javascript', children).value }
-        } />
+        <code className={language} ref={ref}>
+            { code }
+        </code>
     )
 }

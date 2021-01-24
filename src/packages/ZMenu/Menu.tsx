@@ -1,25 +1,9 @@
-import { ReactElement, ReactNode, useState, useCallback } from 'react';
+import { ReactElement, useState, useCallback } from 'react';
 import ZBlock from '../ZBlock';
 import ZIcon from '../ZIcon';
 import classNames from 'classnames';
 import './style.css';
-
-interface MenuItem {
-    label: ReactNode,
-    icon: ReactNode,
-    name?: string,
-    isOpen?: boolean,
-    items?: MenuItem[] | undefined
-}
-
-type OnSelect = ((event: string) => void) | undefined;
-
-interface MenuProps {
-    collapsed: boolean,
-    items: MenuItem[],
-    defaultSelected: string,
-    onSelect?: OnSelect
-}
+import { MenuProps, MenuItem, OnSelect } from '../types';
 
 function MenuGroup(props: { defaultSelected: string, onSelect: OnSelect, menuItem: MenuItem}): ReactElement {
     const {
@@ -79,6 +63,8 @@ export default function Menu(props: MenuProps): ReactElement {
         collapsed,
         items,
         onSelect,
+        className,
+        style,
         defaultSelected
     } = props;
     const [state, setState] = useState({
@@ -94,7 +80,7 @@ export default function Menu(props: MenuProps): ReactElement {
         [onSelect],
     )
     return (
-        <div className={classNames('z-menu', { collapsed })}>
+        <div className={classNames(className, 'z-menu', { collapsed })} style={style}>
             <ul>
                 {
                     items.map(

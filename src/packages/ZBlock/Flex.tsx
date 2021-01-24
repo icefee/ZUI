@@ -2,6 +2,20 @@ import { CSSProperties, ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
 import './Flex.css';
 
+export enum FlexDirection {
+    'row',
+    'column'
+}
+
+export enum JustifyContent {
+    'flex-start',
+    'center',
+    'flex-end',
+    'space-around',
+    'space-between',
+    'stretch'
+}
+
 interface FlexProps {
     key?: string | number,
     children: ReactNode,
